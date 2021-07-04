@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <title>
+        Form Validation
+    </title><br>
+    <table align="center" id="title">
+        <tr>
+            <td style="text-align: center; color: rgb(240, 239, 239); font-size: 2em;">CAFE VELOUTE</td>
+        </tr>
+    </table>
+</head>
+
+<body>
+    <br><br>
+    <style>
+        
+        body {
+          background-color:rgb(0, 2, 2);
+          background-image: url('https://imgmediagumlet.lbb.in/media/2019/09/5d89e8b857ee2791d549dbc0_1569319096609.jpg?fm=webp&w=750&h=500&dpr=1');
+          
+        }
+        h1 {
+            color: #e4dcdc;
+        }
+        table#title {
+            border-radius: 10px;
+        
+            border-style: solid;
+            background-color: #07010e;
+            color: #ebe2e2;
+            padding: 25px;
+            border-radius: 20px;
+            width: 30%;
+            border-collapse: separate;
+            border-spacing:0 10px;
+        }
+        table#info {
+            border-radius: 10px;
+            background-color: #010707;
+            color: cornsilk;
+            border-style: solid;
+            color: #f1e7e7;
+            padding: 30px;
+            border-radius: 10px;
+            width: 50%;
+            border-collapse: separate;
+            border-spacing:0 10px;
+        }
+        input[type=text] {
+            background-color: #fcfdf7;
+            border-radius: 10px;
+        }
+        input[type=email] {
+            background-color: #eefca9;
+            border-radius: 10px;
+        }
+        input[type=password] {
+            background-color: #eefca9;
+            border-radius: 10px;
+        }
+        input[type=submit] {
+            background-color: #000000;
+            border-radius: 10px;
+            color: #FFFFFF;
+        }
+        input[type=submit]:hover {
+            background-color: #808080;
+        }
+        input[type=text]:focus {
+            background-color: #f0ecec;
+        }
+        input[type=email]:focus {
+            background-color: #f3f1f1;
+        }
+        input[type=password]:focus {
+            background-color: #FFFFFF;
+        }
+
+    </style>
+    <script type="text/javascript">
+        
+        function validate() {
+            var password = form1.Password.value;
+            var confirmpassword = form1.PasswordCheck.value;
+            var pincode = form1.Pincode.value;
+            var mobile = form1.Number.value;
+            var passcheck = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+            var pincheck = /^[0-9]{6,6}$/;
+            var mobilecheck = /^[0-9]{10,10}$/;
+
+            if (!mobile.match(mobilecheck))
+                alert("Please Enter a Valid Mobile Number");
+            
+            if (password != confirmpassword)
+                alert("The Password doesn't match");
+            
+            if (!pincode.match(pincheck))
+                alert("Please Enter a Valid Pincode");
+
+            if (!password.match(passcheck))
+                alert("The Password must be atleast 8 digits long and should contain atleast 1 number and special character");
+            else
+                alert("Details Have Been Successfully Saved");
+        }
+
+
+    </script>
+   <marquee style="font-size: 3em; color: #FFF;">SIGN IN HERE</marquee>
+    <br><br><br><br><br>
+    <form name="form1" action="a8.html" target="_blank">
+        <table align="center" id="title">
+            <tr>
+                <td style="text-align: center; font-size: 2em;">Registration Form</td>
+            </tr>
+        </table>
+        <table align="center" id="info">
+            <tr>
+                <td style="text-align: right;">Name:</td>
+                <td><input type="text" name="Name" id="inputName" placeholder="" required></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Email:</td>
+                <td><input type="email" name="Email" id="inputEmail" required></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Mobile Number:</td>
+                <td><input type="text" name="Number" id="inputNumber" required></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Password:</td>
+                <td><input type="password" name="Password" id="inputPass" required></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Confirm Password:</td>
+                <td><input type="password" name="PasswordCheck" id="inputPassCheck" required></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Pincode</td>
+                <td><input type="text" name="Pincode" id="inputPincode" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" onclick="validate()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
